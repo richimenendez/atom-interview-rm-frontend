@@ -1,0 +1,42 @@
+$button-min-width: 200px;
+$button-height: 40px;
+$button-padding: 0 25px;
+$button-gap: 15px;
+$button-radius: 15px;
+$button-opacity-disabled: 0.7;
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin button-text {
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.app-button {
+  min-width: $button-min-width;
+  height: $button-height;
+  padding: $button-padding;
+  border-radius: $button-radius;
+  gap: $button-gap;
+  
+  @include flex-center;
+  @include button-text;
+
+  .spinner {
+    margin-right: $button-gap;
+  }
+
+  mat-icon {
+    margin-right: calc($button-gap / 2);
+  }
+
+  &:disabled {
+    opacity: $button-opacity-disabled;
+    cursor: not-allowed;
+  }
+}
