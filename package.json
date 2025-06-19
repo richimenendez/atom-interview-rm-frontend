@@ -6,16 +6,25 @@
     "start": "ng serve",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "deploy": "firebase deploy --only hosting",
+    "test": "ng test --watch=false",
+    "test:single": "ng test --watch=false",
+    "test:watch": "ng test --watch=true",
+    "test:coverage": "ng test --code-coverage --watch=false"
   },
   "private": true,
   "dependencies": {
+    "@angular/animations": "^20.0.3",
+    "@angular/cdk": "^20.0.3",
     "@angular/common": "^20.0.0",
     "@angular/compiler": "^20.0.0",
     "@angular/core": "^20.0.0",
+    "@angular/fire": "^20.0.1",
     "@angular/forms": "^20.0.0",
+    "@angular/material": "^20.0.3",
     "@angular/platform-browser": "^20.0.0",
     "@angular/router": "^20.0.0",
+    "firebase": "^11.9.1",
     "rxjs": "~7.8.0",
     "tslib": "^2.3.0",
     "zone.js": "~0.15.0"

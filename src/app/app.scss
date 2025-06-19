@@ -1,0 +1,31 @@
+body {
+    margin-inline: 100px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+.app-content {
+  padding: 20px;
+  min-height: calc(100vh - 64px); 
+  background: #f3f2f2;
+}
+
+// Estilos para SnackBars
+.error-snackbar {
+  background: #f44336;
+  color: white;
+}
+
+.success-snackbar {
+  background: #4caf50;
+  color: white;
+}
+
+.info-snackbar {
+  background: #2196f3;
+  color: white;
+}
+
+.app-content {
+padding-inline: 5%;
+}
