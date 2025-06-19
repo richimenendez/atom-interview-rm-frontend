@@ -1,0 +1,48 @@
+.task-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    gap: 20px;
+    padding-block: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+
+.task-form-input {
+    width: 80%;
+}
+
+.task-form-title {
+    font-size: 2rem;
+    font-weight: 600;
+    text-align: left;
+    width: 80%;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    width: 80%;
+}
+
+.form-actions button {
+    width: 40%;
+}
+
+@media screen and (max-width: 600px) {
+  .form-actions {
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+  }
+
+  .form-actions button {
+    width: 100%;
+  }
+}

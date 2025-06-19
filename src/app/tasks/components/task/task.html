@@ -1,0 +1,24 @@
+<mat-card class="task-card" [@slideUp]>
+    <mat-checkbox 
+        [checked]="task.completed"
+        (change)="onToggleStatus($event)"
+        [disabled]="task.updating"
+        class="task-checkbox"
+        color="primary">
+    </mat-checkbox>
+    <mat-card-header>
+        <mat-card-title class="card-title">{{ task.title }}</mat-card-title>
+        <mat-card-subtitle class="card-subtitle">Creado: {{ task.createdAt | date:'short' }}</mat-card-subtitle>
+        <mat-card-subtitle class="card-subtitle">
+            Estado: {{ task.completed ? 'Completada' : 'Pendiente' }}
+            <mat-spinner *ngIf="task.updating" diameter="16" class="status-spinner"></mat-spinner>
+        </mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content class="task-card-content">
+        <p>{{ task.description }}</p>
+    </mat-card-content>
+    <mat-card-actions class="task-card-actions">
+        <button matButton="outlined" (click)="onEdit()" color="primary">Editar</button>
+        <button matButton="outlined" (click)="onDelete()" color="warn" >Eliminar</button>
+    </mat-card-actions>
+</mat-card>

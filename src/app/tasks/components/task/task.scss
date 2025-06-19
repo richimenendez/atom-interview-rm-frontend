@@ -1,0 +1,73 @@
+.task-card {
+    min-width: 300px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    padding: 16px;
+    position: relative;
+    transition: all 0.3s ease;
+
+    &:hover {
+        background-color: #ececec;
+        transform: translateY(-2px) scale(1.02);
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.task-checkbox {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    z-index: 10;
+    
+    ::ng-deep .mdc-checkbox {
+        border-radius: 4px;
+        transition: all 0.2s ease;
+        
+        &:hover {
+            transform: scale(1.05);
+        }
+    }
+}
+
+.task-card-content {
+    padding: 1lh 16px;
+    font-size: 0.8lh;
+    opacity: 0.8;
+}
+
+.card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #1d1d1f;
+    margin-bottom: 8px;
+    margin-right: 48px; 
+}
+
+.card-subtitle {
+    color: #86868b;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.status-spinner {
+    margin-left: 8px;
+}
+
+.task-card-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task-card-actions button {
+    width: 48%;
+}

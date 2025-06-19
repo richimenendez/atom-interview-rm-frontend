@@ -1,0 +1,27 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="task-form">
+    <mat-label class="task-form-title">{{ mode === 'create' ? 'Crear tarea' : 'Actualizar tarea' }}</mat-label>
+  <mat-form-field appearance="outline" class="task-form-input">
+    <mat-label>Título de la tarea</mat-label>
+    <input matInput formControlName="title" required placeholder="Ej: Implementar login" />
+    <mat-error *ngIf="titleControl?.hasError('required')">El título es requerido</mat-error>
+    <mat-error *ngIf="titleControl?.hasError('minlength')">Mínimo 3 caracteres</mat-error>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline" class="task-form-input">
+    <mat-label>Descripción</mat-label>
+    <textarea matInput formControlName="description" required placeholder="Describe los detalles de la tarea..." rows="3"></textarea>
+    <mat-error *ngIf="descriptionControl?.hasError('required')">La descripción es requerida</mat-error>
+    <mat-error *ngIf="descriptionControl?.hasError('minlength')">Mínimo 10 caracteres</mat-error>
+  </mat-form-field>
+
+  <mat-checkbox formControlName="completed" class="task-form-input" color="primary">
+    Marcar como completada
+  </mat-checkbox>
+
+  <div class="form-actions">
+    <button mat-button type="button" (click)="onCancel()">Cancelar</button>
+    <button mat-raised-button color="primary" type="submit">
+      {{ mode === 'create' ? 'Crear tarea' : 'Actualizar tarea' }}
+    </button>
+  </div>
+</form> 

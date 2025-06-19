@@ -1,0 +1,62 @@
+.task-list {
+  padding: 20px;
+  
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid #e0e0e0;
+    
+    .task-title {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #1a1a1a;
+      margin: 0;
+      line-height: 1.2;
+      
+      @media (max-width: 768px) {
+        font-size: 2rem;
+      }
+      
+      @media (max-width: 480px) {
+        font-size: 1.75rem;
+      }
+    }
+  }
+}
+
+.tasks-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+// Responsive design para el header
+@media (max-width: 768px) {
+  .task-list {
+    .task-header {
+      flex-direction: column;
+      gap: 16px;
+      align-items: flex-start;
+      
+      .task-title {
+        margin-bottom: 8px;
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .task-list {
+    padding: 16px;
+    
+    .task-header {
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+    }
+  }
+}

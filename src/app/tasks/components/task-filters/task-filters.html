@@ -1,0 +1,70 @@
+<div class="task-filters">
+  <div class="filters-bar">
+    <!-- Barra de búsqueda -->
+    <div class="search-section">
+      <div class="search-input-wrapper">
+        <mat-icon class="search-icon">search</mat-icon>
+        <input 
+          type="text" 
+          class="search-input"
+          placeholder="Buscar por nombre de tarea..."
+          [formControl]="searchControl"
+        >
+      </div>
+    </div>
+
+    <!-- Ordenar por fecha -->
+    <div class="date-order-section">
+      <button 
+        type="button"
+        class="date-btn"
+        (click)="toggleDateOrder()"
+        [class.asc]="filtersForm.get('dateOrder')?.value === 'asc'"
+        [class.desc]="filtersForm.get('dateOrder')?.value === 'desc'">
+        <mat-icon class="calendar-icon">calendar_today</mat-icon>
+        <mat-icon class="arrow-icon">
+          {{ filtersForm.get('dateOrder')?.value === 'asc' ? 'keyboard_arrow_down' : 'keyboard_arrow_up' }}
+        </mat-icon>
+      </button>
+    </div>
+
+    <!-- Filtrar por estado -->
+    <div class="status-filter-section">
+      <button 
+        type="button"
+        class="status-btn"
+        (click)="toggleStatusDropdown()">
+        <mat-icon>filter_list</mat-icon>
+        <span class="status-text">{{ getStatusLabel() }}</span>
+        <mat-icon class="dropdown-icon">expand_more</mat-icon>
+      </button>
+      
+      <!-- Dropdown de estado -->
+      <div class="status-dropdown" *ngIf="showStatusDropdown">
+        <div class="dropdown-item" (click)="selectStatus('all')">
+          <mat-icon>list</mat-icon>
+          <span>Todas</span>
+        </div>
+        <div class="dropdown-item" (click)="selectStatus('completed')">
+          <mat-icon>check_circle</mat-icon>
+          <span>Completadas</span>
+        </div>
+        <div class="dropdown-item" (click)="selectStatus('pending')">
+          <mat-icon>pending</mat-icon>
+          <span>Pendientes</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Botón limpiar -->
+    <div class="clear-section">
+      <button 
+        type="button"
+        class="clear-btn"
+        (click)="clearFilters()"
+        title="Limpiar filtros">
+        <mat-icon>clear</mat-icon>
+      </button>
+    </div>
+  </div>
+</div> 

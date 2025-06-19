@@ -1,0 +1,20 @@
+<div class="task-list">
+  <!-- Header con título y botón -->
+  <div class="task-header">
+    <h1 class="task-title">Lista de Tareas</h1>
+    <app-button text="Agregar Tarea" (clicked)="addTask()"></app-button>
+  </div>
+  
+  <app-task-filters (filtersChange)="onFiltersChange($event)"></app-task-filters>
+  
+  <div class="tasks-container">
+    @for (task of tasks; track task.id) {
+      <app-task 
+        [task]="task"
+        (editTask)="editTask($event)"
+        (deleteTask)="deleteTask($event)"
+        (toggleStatus)="toggleTaskStatus($event)">
+      </app-task>
+    }
+  </div>
+</div>
