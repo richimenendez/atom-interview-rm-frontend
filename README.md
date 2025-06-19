@@ -3,33 +3,16 @@
 ## ¿Qué es esto?
 
 Este es el backend de la aplicación que desarrollé para la entrevista con Atom, una aplicación web para gestionar tareas. Está construido con Angular 20, TypeScript y Angular Material, siguiendo principios de arquitectura modular y programación reactiva. En este proyecto traté de implementar la mayoría de conceptos que he manejado como desarrollador, me apoyé con IA para agilizar el desarrollo, pero todo sobre conceptos que he manejado en proyectos de la vida real. 
-## ¿Por qué elegimos Angular?
-
-### Angular 20 + TypeScript
-
-Decidimos usar Angular porque es un framework maduro y robusto para aplicaciones empresariales. Angular nos da:
-
-- **TypeScript nativo**: Tipado estático que previene errores
-- **Arquitectura modular**: Código organizado y escalable
-- **Herramientas potentes**: Angular CLI y DevTools
-- **Ecosistema rico**: Angular Material, RxJS, etc.
-
-TypeScript es especialmente útil porque nos ayuda a detectar errores desde el momento que escribimos el código, y los tipos sirven como documentación automática.
 
 ### Angular Material
 
-Elegimos Angular Material porque queríamos una interfaz de usuario consistente y profesional. Material Design nos da:
-
-- **Componentes listos para usar**: Botones, formularios, modales, etc.
-- **Diseño responsive**: Se adapta a cualquier pantalla
-- **Accesibilidad**: Navegación por teclado y lectores de pantalla
-- **Temas personalizables**: Podemos cambiar colores fácilmente
+Trate de usar Angular Material al ser la librería mas usada con Angular, en lo personal, prefiero hacer mis propios diseños, y talvez usar los elementos solo para funcionalidades, pero generalmente prefiero usar Tailwind. Aunque hago el ejercicio para demostrar el uso en la herramienta. La cual usaría sin problema. Trate de mezclar tanto SCSS, como Componentes de Angular Material.
 
 ## Arquitectura del proyecto
 
 ### Estructura modular
 
-Organizamos el código en módulos para que sea fácil de mantener:
+Organizé el código en módulos para que sea fácil de mantener:
 
 ```
 src/app/
@@ -43,10 +26,10 @@ Cada módulo tiene sus propios componentes, servicios y modelos. Esto hace que e
 
 ### Lazy Loading
 
-Usamos lazy loading para cargar los módulos solo cuando se necesitan. Esto significa que:
+Se usó lazy loading para cargar los módulos solo cuando se necesitan. Esto significa que:
 
 - La aplicación carga más rápido inicialmente
-- Solo descargamos el código que realmente usamos
+- Solo se descarga el código que realmente se usa
 - Mejor experiencia de usuario
 
 ## ¿Cómo funciona la autenticación?
@@ -62,7 +45,7 @@ La autenticación funciona así:
 
 ### Estado de autenticación
 
-Usamos RxJS BehaviorSubject para manejar el estado de autenticación de forma reactiva:
+Usé RxJS BehaviorSubject para manejar el estado de autenticación de forma reactiva:
 
 ```typescript
 // Cuando el usuario hace login
@@ -84,11 +67,12 @@ Toda la lógica de negocio está en servicios:
 - **TaskService**: Maneja operaciones con tareas
 - **ErrorHandlerService**: Maneja errores de forma centralizada
 
-Esto nos da varias ventajas:
+Esto da varias ventajas:
 - Código reutilizable
 - Fácil de testear
 - Separación clara de responsabilidades
 
+Aunque es el estandar de Angular, es la ventaja de usar un framework, ya ofrece en su catalogo de opciones, buenas practicas para resolver problemas comunes.
 ### Programación Reactiva con RxJS
 
 Usamos RxJS para manejar streams de datos:
@@ -111,7 +95,7 @@ RxJS nos permite:
 
 ### Arquitectura de componentes
 
-Tenemos dos tipos de componentes:
+Hay dos tipos de componentes:
 
 **Smart Components** (como TaskList):
 - Contienen lógica de negocio
@@ -125,7 +109,7 @@ Tenemos dos tipos de componentes:
 
 ### Sistema de modales
 
-Creamos un sistema de modales reutilizable:
+Cree un sistema de modales reutilizable:
 
 - **Modal genérico**: Se puede usar para cualquier contenido
 - **Configuración dinámica**: Títulos, mensajes y botones configurables
@@ -136,7 +120,7 @@ Creamos un sistema de modales reutilizable:
 
 ### Estrategia comprehensiva
 
-Tenemos un sistema robusto de manejo de errores:
+Hicé un sistema robusto de manejo de errores:
 
 **ErrorHandlerService**: Servicio centralizado que:
 - Detecta el tipo de error automáticamente
@@ -161,19 +145,11 @@ Tenemos un sistema robusto de manejo de errores:
 
 ### Estrategia de testing
 
-Usamos Jasmine y Karma para testing:
+Se usó Jasmine y Karma para testing:
 
 - **Unit tests**: Para servicios y componentes
 - **Integration tests**: Para interacción entre componentes
 - **Mock services**: Para simular dependencias externas
-
-### Cobertura de código
-
-Tenemos tests para:
-- Servicios de autenticación
-- Servicios de tareas
-- Componentes principales
-- Manejo de errores
 
 ## Performance y optimización
 
@@ -184,37 +160,15 @@ Tenemos tests para:
 - **Lazy Loading**: Carga bajo demanda
 - **Tree Shaking**: Elimina código no usado
 
-### Bundle optimization
-
-Configuramos límites de tamaño para el bundle:
-- **Warning**: 500kB
-- **Error**: 1MB
-
-Esto nos ayuda a mantener la aplicación rápida.
-
 ## ¿Por qué esta arquitectura?
 
-### Ventajas de nuestra decisión
+### Ventajas de esta implementación
 
 **Modularidad**: Cada funcionalidad está en su propio módulo
 **Reutilización**: Componentes y servicios se pueden reutilizar
 **Mantenibilidad**: Código organizado y fácil de entender
 **Escalabilidad**: Fácil agregar nuevas features
 **Testing**: Cada parte se puede testear de forma aislada
-
-### Comparación con otras opciones
-
-**Angular vs React/Vue**:
-- Angular es más opinado y estructurado
-- Mejor para aplicaciones empresariales grandes
-- TypeScript nativo
-- Herramientas más potentes
-
-**Angular Material vs otras UI libraries**:
-- Integración perfecta con Angular
-- Diseño consistente
-- Accesibilidad incluida
-- Menos configuración necesaria
 
 ## Scripts disponibles
 
@@ -230,18 +184,6 @@ npm run test:coverage  # Tests con cobertura
 Necesitas configurar:
 - `firebaseConfig`: Configuración de Firebase
 - `apiUrl`: URL del backend
-
-## ¿Qué sigue?
-
-Algunas mejoras que podríamos implementar:
-
-- **NgRx/Redux**: Para estado global más complejo
-- **PWA**: Para funcionalidad offline
-- **Server-Side Rendering**: Con Angular Universal
-- **Micro Frontends**: Para escalabilidad
-- **E2E Testing**: Con Cypress o Playwright
-- **Storybook**: Para documentación de componentes
-- **Web Workers**: Para operaciones pesadas
 
 ## Características de UX/UI
 
