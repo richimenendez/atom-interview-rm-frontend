@@ -8,6 +8,7 @@
     "watch": "ng build --watch --configuration development",
     "deploy": "firebase deploy --only hosting",
     "test": "ng test --watch=false",
+    "test:ci": "ng test --browsers=ChromeHeadless --watch=false --code-coverage",
     "test:single": "ng test --watch=false",
     "test:watch": "ng test --watch=true",
     "test:coverage": "ng test --code-coverage --watch=false"
