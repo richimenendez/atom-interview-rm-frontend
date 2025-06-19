@@ -1,0 +1,32 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="auth-form">
+    <mat-card class="auth-card">
+      <mat-card-header>
+        <mat-card-title class="auth-card-title">{{ mode === 'login' ? 'Iniciar Sesión' : 'Registrarse' }}</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <mat-form-field appearance="outline" class="auth-form-input">
+          <mat-label>Correo electrónico</mat-label>
+          <input matInput formControlName="email" type="email" required placeholder="ejemplo@correo.com" />
+          <mat-error *ngIf="emailControl?.hasError('required')">Este campo es requerido</mat-error>
+          <mat-error *ngIf="emailControl?.hasError('email')">Correo inválido</mat-error>
+        </mat-form-field>
+        <mat-form-field *ngIf="requirePassword" appearance="outline">
+          <mat-label>Contraseña</mat-label>
+          <input matInput formControlName="password" type="password" required />
+          <mat-error *ngIf="passwordControl?.hasError('required')">Este campo es requerido</mat-error>
+          <mat-error *ngIf="passwordControl?.hasError('minlength')">Mínimo 6 caracteres</mat-error>
+        </mat-form-field>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-flat-button color="primary" type="submit" class="auth-form-button">
+          {{ mode === 'login' ? 'Entrar' : 'Crear cuenta' }}
+        </button>
+      </mat-card-actions>
+      <div class="auth-link-container">
+        <a mat-button class="auth-link" (click)="toggleMode()">
+          {{ mode === 'login' ? '¿No tienes cuenta? Regístrate' : '¿Ya tienes cuenta? Inicia sesión' }}
+        </a>
+      </div>
+    </mat-card>
+  </form>
+  

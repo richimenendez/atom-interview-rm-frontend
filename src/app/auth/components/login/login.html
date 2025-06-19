@@ -1,0 +1,6 @@
+<app-auth-form
+  [mode]="'login'"
+  [requirePassword]="requirePassword"
+  (submitForm)="handleLogin($event)"
+  (modeChange)="onModeChange($event)">
+</app-auth-form>
