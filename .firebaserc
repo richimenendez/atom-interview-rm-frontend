@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "atom-interview-rm"
+  },
+  "targets": {
+    "atom-interview-rm": {
+      "hosting": {
+        "app": [
+          "atom-interview-rm"
+        ]
+      }
+    }
   }
 } 
