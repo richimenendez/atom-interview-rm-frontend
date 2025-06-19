@@ -21,7 +21,7 @@ jobs:
         run: npm ci
 
       - name: Run tests
-        run: npx karma start --browsers ChromeHeadless --single-run
+        run: ng test --browsers=ChromeHeadless --watch=false
 
       - name: Build project
         run: npm run build
